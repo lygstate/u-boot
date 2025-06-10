@@ -32,6 +32,8 @@ config TARGET_OPENPITON_RISCV64
 config TARGET_QEMU_VIRT
 	bool "Support QEMU Virt & RVVM Boards"
 	select BOARD_LATE_INIT
+	select SUPPORT_BIG_ENDIAN
+	select SUPPORT_LITTLE_ENDIAN
 
 config TARGET_SIFIVE_UNLEASHED
 	bool "Support SiFive Unleashed Board"
