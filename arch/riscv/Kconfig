@@ -60,6 +60,8 @@ config TARGET_ASPEED_AST2700_IBEX
 
 config TARGET_OPENHWGROUP_CVA6_GENESYSII
 	bool "Target cva6 architecture on genesysII board"
+	select SUPPORT_BIG_ENDIAN
+	select SUPPORT_LITTLE_ENDIAN
 
 endchoice
 
