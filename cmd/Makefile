@@ -242,7 +242,7 @@ obj-$(CONFIG_HUSH_SELECTABLE) += cli.o
 obj-$(CONFIG_CMD_SPAWN) += spawn.o
 
 obj-$(CONFIG_ARM) += arm/
-obj-$(CONFIG_RISCV) += riscv/
+obj-$(CONFIG_CMD_RISCV) += riscv/
 obj-$(CONFIG_SANDBOX) += sandbox/
 obj-$(CONFIG_X86) += x86/
 

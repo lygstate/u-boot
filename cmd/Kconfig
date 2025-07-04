@@ -2332,6 +2332,12 @@ config CMD_EFICONFIG
 	  Enable the 'eficonfig' command which provides the menu-driven UEFI
 	  variable maintenance interface.
 
+config CMD_RISCV
+	bool
+	depends on RISCV
+	default y if CMD_EXCEPTION
+	default y if CMD_SBI
+
 config CMD_EXCEPTION
 	bool "exception - raise exception"
 	depends on ARM || RISCV || SANDBOX || X86
