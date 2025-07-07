@@ -829,6 +829,15 @@ config SYS_NS16550_MEM32
 	  If enabled, if memory-mapped, indicates that 32-bit access should be
 	  used (instead of 8-bit) for register access.
 
+config SYS_NS16550_MEM32_MMIO
+	bool "If using mem32, use MMIO readl/writel functions"
+	depends on SYS_NS16550_MEM32
+	default n
+	help
+	  If using the mem32 code, then use the readl and writel functions to
+	  access the IO and not try the outl/inl functions (which are also
+	  currently being forced endian)
+
 config SYS_NS16550_PORT_MAPPED
 	bool "Port I/O is used for ns16550 register access"
 	depends on SYS_NS16550
