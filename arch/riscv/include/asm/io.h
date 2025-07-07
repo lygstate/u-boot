@@ -52,18 +52,21 @@ static inline void writeb(u8 val, volatile void __iomem *addr)
 static inline void writew(u16 val, volatile void __iomem *addr)
 {
 	__iowmb();
+	val = cpu_to_le16(val);
 	__arch_putw(val, addr);
 }
 
 static inline void writel(u32 val, volatile void __iomem *addr)
 {
 	__iowmb();
+	val = cpu_to_le32(val);
 	__arch_putl(val, addr);
 }
 
 static inline void writeq(u64 val, volatile void __iomem *addr)
 {
 	__iowmb();
+	val = cpu_to_le64(val);
 	__arch_putq(val, addr);
 }
 
@@ -81,6 +84,7 @@ static inline u16 readw(const volatile void __iomem *addr)
 	u16	val;
 
 	val = __arch_getw(addr);
+	val = le16_to_cpu(val);
 	__iormb();
 	return val;
 }
@@ -90,6 +94,7 @@ static inline u32 readl(const volatile void __iomem *addr)
 	u32	val;
 
 	val = __arch_getl(addr);
+	val = le32_to_cpu(val);
 	__iormb();
 	return val;
 }
@@ -99,6 +104,7 @@ static inline u64 readq(const volatile void __iomem *addr)
 	u64	val;
 
 	val = __arch_getq(addr);
+	val = le64_to_cpu(val);
 	__iormb();
 	return val;
 }
