@@ -96,6 +96,14 @@ static inline int serial_in_shift(void *addr, int shift)
 #define CFG_SYS_NS16550_CLK  0
 #endif
 
+#ifndef inb
+#define inb(__x) (0)
+#endif
+
+#ifndef outb
+#define outb(__x, __y) do { } while (0)
+#endif
+
 /*
  * Use this #ifdef for now since many platforms don't define in(), out(),
  * out_le32(), etc. but we don't have #defines to indicate this.
