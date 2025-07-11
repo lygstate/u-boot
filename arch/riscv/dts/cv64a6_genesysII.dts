@@ -7,6 +7,7 @@
   model = "eth,ariane-bare";
   chosen {
     stdout-path = "/soc/uart@10000000:115200";
+    bootargs = "earlyprintk earylcon=sbi console=ttyS0,115200n8";
     //tick-timer =  "/cpus/cpu@0";
   };
   cpus {
@@ -35,6 +36,8 @@
     reg = <0x0 0x80000000 0x0 0x40000000>;
   };
   reserved-memory {
+    #address-cells = <2>;
+    #size-cells = <2>;
     ranges;
 
     opensbiv@0x80000000 {
