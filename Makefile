@@ -303,10 +303,6 @@ KBUILD_HOSTLDLIBS   := $(HOST_LFS_LIBS) $(HOSTLDLIBS)
 CSTD_FLAG := -std=gnu11
 KBUILD_HOSTCFLAGS += $(CSTD_FLAG)
 
-ifeq ($(HOSTOS),cygwin)
-KBUILD_HOSTCFLAGS	+= -ansi
-endif
-
 # Mac OS X / Darwin's C preprocessor is Apple specific.  It
 # generates numerous errors and warnings.  We want to bypass it
 # and use GNU C's cpp.	To do this we pass the -traditional-cpp
