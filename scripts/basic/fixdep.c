@@ -334,7 +334,7 @@ static void parse_dep_file(char *m, const char *target)
 
 	while (1) {
 		/* Skip any "white space" */
-		while (*m == ' ' || *m == '\\' || *m == '\n')
+		while (*m == ' ' || *m == '\\' || *m == '\n' || *m == '\r')
 			m++;
 
 		if (!*m)
@@ -342,7 +342,7 @@ static void parse_dep_file(char *m, const char *target)
 
 		/* Find next "white space" */
 		p = m;
-		while (*p && *p != ' ' && *p != '\\' && *p != '\n')
+		while (*p && *p != ' ' && *p != '\\' && *p != '\n' && *p != '\r')
 			p++;
 		is_last = (*p == '\0');
 		/* Is the token we found a target name? */
